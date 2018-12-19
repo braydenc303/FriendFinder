@@ -3,7 +3,7 @@
 //    * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
 //    * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
-
+// var express = require("express");
 var path = require("path");
 
 // ===============================================================================
@@ -29,14 +29,20 @@ module.exports = function(app){
 
   app.post("/api/friends", function(req, res) {
     var newPerson = req.body;
+    var scores = [];
+    for(var i = 0; i < newPerson.scores.length; i++){
+        var score = parseInt(newPerson.scores[i]);
+        scores.push(score);
+    }
 
+    newPerson.scores = scores;
 
 
     console.log(newPerson);
   
-    // sadMen.push(newPerson);
+    friendsData.push(newPerson);
   
-    // res.json(newPerson);
+    res.json(newPerson);
 //     6. Determine the user's most compatible friend using the following as a guide:
 
 //    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
