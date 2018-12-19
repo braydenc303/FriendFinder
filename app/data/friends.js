@@ -261,3 +261,5 @@ var sadMen = [
     },
 
 ]
+
+module.exports = sadMen;
