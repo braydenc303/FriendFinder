@@ -38,11 +38,17 @@ module.exports = function(app){
     newPerson.scores = scores;
 
 
-    console.log(newPerson);
-  
-    friendsData.push(newPerson);
-  
-    res.json(newPerson);
+    // console.log(newPerson);
+
+    for(var i = 0; i < friendsData.length; i++){
+        var total = 0;
+        for(var n = 0; n < scores.length; n++){
+            var diff = Math.abs(scores[n] - friendsData[i].scores[n]);
+            total += diff;
+        }
+        console.log(total);
+    }
+    
 //     6. Determine the user's most compatible friend using the following as a guide:
 
 //    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
@@ -57,6 +63,9 @@ module.exports = function(app){
 // 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 //    * The modal should display both the name and picture of the closest match.
 
+  //   This needs to happen at the end, or you have the possibility of comparing the new user to themselves.
+    friendsData.push(newPerson);
+    res.json(newPerson);
   });
 
 
