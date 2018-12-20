@@ -49,11 +49,13 @@ module.exports = function(app){
         // console.log(total);
         totals.push(total);
     }
-    // console.log(totals);
-    var index = Math.min.apply(null, totals);
-    // console.log(index);
+    console.log(totals);
+    var min = Math.min.apply(null, totals);
+    console.log(min);
+    var index = totals.indexOf(min);
+    console.log(index);
     var match = friendsData[index];
-    // console.log(match);    
+    console.log(match);    
 //     6. Determine the user's most compatible friend using the following as a guide:
 
 //    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
