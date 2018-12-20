@@ -235,7 +235,7 @@ var sadMen = [
     },
     {
         name: "Willie",
-        photo: "http://somethingelsereviews.com/wp-content/uploads/2013/09/willie_nelson.jpg",
+        photo: "https://www.savingcountrymusic.com/wp-content/uploads/2012/04/willie-nelson.jpg",
         scores: [
             // I wish people would be more excellent to each other.
             5,
