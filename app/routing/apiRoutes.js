@@ -39,7 +39,7 @@ module.exports = function(app){
 
 
     // console.log(newPerson);
-
+    var totals = [];
     for(var i = 0; i < friendsData.length; i++){
         var total = 0;
         for(var n = 0; n < scores.length; n++){
@@ -47,8 +47,13 @@ module.exports = function(app){
             total += diff;
         }
         console.log(total);
+        totals.push(total);
     }
-    
+    console.log(totals);
+    var index = Math.min.apply(null, totals);
+    console.log(index);
+    var match = friendsData[index];
+    console.log(match);    
 //     6. Determine the user's most compatible friend using the following as a guide:
 
 //    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
@@ -65,7 +70,7 @@ module.exports = function(app){
 
   //   This needs to happen at the end, or you have the possibility of comparing the new user to themselves.
     friendsData.push(newPerson);
-    res.json(newPerson);
+    res.json(match);
   });
 
 
