@@ -46,14 +46,14 @@ module.exports = function(app){
             var diff = Math.abs(scores[n] - friendsData[i].scores[n]);
             total += diff;
         }
-        console.log(total);
+        // console.log(total);
         totals.push(total);
     }
-    console.log(totals);
+    // console.log(totals);
     var index = Math.min.apply(null, totals);
-    console.log(index);
+    // console.log(index);
     var match = friendsData[index];
-    console.log(match);    
+    // console.log(match);    
 //     6. Determine the user's most compatible friend using the following as a guide:
 
 //    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).

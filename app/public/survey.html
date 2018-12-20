@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container">
-        <div class = "card p-3">
+        <form class = "card p-3" id = "myForm">
             <h2>Survey Questions</h2>
             <hr>
 
@@ -183,7 +183,7 @@
                     </div>
                   </div>
 
-        </div>
+        </form>
 
         <div><br></div>
         <footer class="footer">
@@ -204,6 +204,10 @@
   
     $(".submit").on("click", function(event) {
       event.preventDefault();
+      if(!$("#name").val()||!$("#photo").val()){
+          alert("Please check for empty answers.");
+          return false;
+      }
   
       // Here we grab the form elements
       var arr = [];
@@ -211,7 +215,6 @@
           var ans = parseInt($("#q"+i).val());
           console.log(ans);
           arr.push(ans);
-
       }
       var newPerson = {
           //This would be a good place to implement a regex.
@@ -231,6 +234,9 @@
             var image = "<img src='"+data.photo+"'/>";
             $(".modal-body").html(name+image);
             $('#myModal').modal('show');
+            $("#name").val("");
+            document.getElementById("myForm").reset();
+            // document.getElementById("#name").value="";
         });
   
     });
